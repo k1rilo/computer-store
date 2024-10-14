@@ -41,16 +41,14 @@
                                 aria-expanded="false">
                                 Категории
                             </a>
+
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Коплектующие</a></li>
+                                {% for category in categories %}
+                                <li><a class="dropdown-item" href="#">{{ category.name }}</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Компьютеры</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Перефирия</a></li>
+                                {% endfor %}
                             </ul>
                         </li>
                     </ul>
