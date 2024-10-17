@@ -14,6 +14,19 @@ def product_list(request):
                   context={'product_list': build_template(products, 3),
                     'categories': categories})
 
-def product_detail(request):
+def product_detail(request, pk):
     categories = Category.objects.all()
-    product = Product.objects.get(pk=1)
+    product = Product.objects.get(pk=pk)
+    return render(request, 'comp/product_detail.html', context={'product': product, 'categories': categories})
+
+
+def category_detail(request, pk):
+    categories = Category.objects.all()
+    category = Category.objects.get(pk=pk)
+    products = category.products.all()
+    return render (request, 'comp/category_detail.html', 
+                   context={
+                       'category': category, 
+                       'categories': categories,
+                       'product_list': build_template(products, 3),
+                       })

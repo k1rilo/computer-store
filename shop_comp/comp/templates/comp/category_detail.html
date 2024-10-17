@@ -1,11 +1,12 @@
 {% extends 'comp/index.html' %}
 
 {% block title %}
-Computer Store
+{{ category.name }}
 {% endblock title %}
 
 
 
 {% block content %}
+<h1>Товарыы с категорией "{{ category.name }}":</h1>
 {% include 'comp/includes/card_group.html' %}
 {% endblock content %}
