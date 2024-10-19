@@ -3,16 +3,15 @@
     {% for product in products %}
     <div class="card">
         <a href="{{ product.get_absolute_url }}">
-            <img src="https://i.pinimg.com/originals/70/6c/05/706c0514135cbb62e66b47d56e5488a5.jpg" class="card-img-top"
-                alt="Msi">
+            {% include 'comp/includes/image.html' %}
         </a>
         <div class="card-body">
             <h5 class="card-title">{{ product.title }}</h5>
             <p class="card-text">{{ product.info|truncatewords:10 }}</p>
             <p class="card-text">Price: {{ product.price }}</p>
-            <ul class="category_list">
+            <ul class="list-group list-group-horizontal">
                 {% for category in product.categories.all %}
-                <li><a href="{% url 'category_detail_url' pk=category.pk %}">{{ category.name }}</a></li>
+                <li><a href="{{ category.get_absolute_url}}">{{ category.name }}</a></li>
                 {% endfor %}
             </ul>
         </div>
