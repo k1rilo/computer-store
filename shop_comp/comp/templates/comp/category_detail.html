@@ -7,6 +7,14 @@
 
 
 {% block content %}
+{% if category.products.all|length == 0  %}
+<h1>Товарыы с категорией "{{ category.name }}" на данный момент отсутствуют:</h1>
+{% else  %}
 <h1>Товарыы с категорией "{{ category.name }}":</h1>
-{% include 'comp/includes/card_group.html' %}
+<div class="card-group">
+    {% for product in category.products.all %}
+        {% include 'comp/includes/card_group.html' %}
+    {% endfor %}
+</div>
+{% endif  %}
 {% endblock content %}

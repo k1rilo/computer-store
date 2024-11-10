@@ -1,7 +1,4 @@
-{% for products in product_list %}
-<div class="card-group">
-    {% for product in products %}
-    <div class="card">
+<div class="card">
         <a href="{{ product.get_absolute_url }}">
             {% include 'comp/includes/image.html' %}
         </a>
@@ -15,7 +12,4 @@
                 {% endfor %}
             </ul>
         </div>
-    </div>
-    {% endfor %}
 </div>
-{% endfor %}

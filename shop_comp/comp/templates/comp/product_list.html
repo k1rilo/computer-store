@@ -7,5 +7,9 @@ Computer Store
 
 
 {% block content %}
-{% include 'comp/includes/card_group.html' %}
+<div class="card-group">
+    {% for product in product_list %}
+        {% include 'comp/includes/card_group.html' %}
+    {% endfor %}
+</div>
 {% endblock content %}
